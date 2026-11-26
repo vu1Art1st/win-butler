@@ -10,7 +10,7 @@ M0 technical validation and the first read-only catalog demo are complete:
 
 - A 32-bit Win32 scanner recognizes classic `shell` verbs, `shellex` ContextMenuHandlers, and Windows 11 Packaged COM.
 - The EUI-NEO desktop app runs with Chinese/English switching, scene filtering, search, and details.
-- Test fixtures exist for classic verbs, ShellEx DLLs, and Packaged COM MSIX packages.
+- Optional local diagnostic fixtures cover classic verbs, ShellEx DLLs, and Packaged COM MSIX packages.
 - The read-only scan currently completes in roughly 60 to 140 ms on the development machine.
 - This build is read-only and exposes no registry-write action.
 
@@ -54,7 +54,7 @@ Run the read-only scanner:
 .\build\Release\win_butler_scan.exe
 ```
 
-Run tests:
+Optional: run the existing focused unit tests when useful for local diagnosis:
 
 ```powershell
 ctest --test-dir build -C Release --output-on-failure
@@ -66,13 +66,14 @@ ctest --test-dir build -C Release --output-on-failure
 - `fixtures/shellex`: buildable 32-bit `IContextMenu` DLL
 - `fixtures/packaged-com`: buildable and signed 64-bit Packaged COM MSIX
 
-Fixtures are for disposable Windows 11 test environments. The Packaged COM fixture is not installed by default.
+Fixtures are for reversible local diagnosis. The Packaged COM fixture is built and signed but not installed by default.
 
 ## Documentation
 
-- [Development plan](docs/DEVELOPMENT_PLAN.md)
-- [M0 technical validation](docs/M0_TECHNICAL_VALIDATION.md)
-- [VM snapshot matrix](docs/VM_MATRIX.md)
+- [Repository development rules](AGENTS.md)
+- [Product development plan and per-phase AI prompts](docs/DEVELOPMENT_PLAN.md)
+- [Context-menu technical design](docs/CONTEXT_MENU_TECHNICAL_DESIGN.md)
+- [M0 technical validation record](docs/M0_TECHNICAL_VALIDATION.md)
 - [Reference analysis and license boundary](docs/REFERENCE_ANALYSIS.md)
 
 ## License
