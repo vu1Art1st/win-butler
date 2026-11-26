@@ -17,8 +17,7 @@ Date: 2026-11-26
 | ShellEx fixture | Passed | Built as a 32-bit `IContextMenu` DLL, installed, discovered, removed, and verified with zero residual items |
 | Packaged COM fixture build | Passed | Built and signed a 64-bit MSIX containing `IExplorerCommand` and `windows.fileExplorerContextMenus` |
 | Packaged COM install/block/unblock | Passed in Sandbox | Windows Sandbox build 26100 installed the signed fixture, scanned it as Enabled, changed to Disabled after Blocked, then returned to Enabled |
-| Packaged COM visual menu check | Pending manual | The user will manually inspect the Explorer menu and report back |
-| Four-version VM matrix | Pending VM | The current host has one build and no accessible Hyper-V VM inventory |
+| Packaged COM visual menu check | Pending local manual check | Scanner state transitions were verified in Sandbox; the visible Explorer effect has not been checked |
 
 ## Technical findings
 
@@ -54,7 +53,7 @@ Date: 2026-11-26
   - `HKCU\Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked`
   - Value name: CLSID with braces
   - Value data: empty string
-- Actual Explorer behavior still needs to be verified on each target VM.
+- Before enabling Packaged COM writes, verify the visible Explorer effect on the current development build; treat unverified Windows builds as read-only.
 - Windows Sandbox build 26100 confirmed the package installs, the scanner finds it, and the Blocked-list state transitions are observable:
   - after install: `Enabled`
   - after Blocked value: `Disabled`
@@ -70,4 +69,4 @@ Date: 2026-11-26
 
 ## Decision
 
-The read-only architecture is viable. Proceed to the write-path milestone only after the Packaged COM VM test records an observable menu disappearance and restoration. If the Blocked list does not work on a supported build, the UI must mark that build's Packaged COM entries as read-only.
+The read-only architecture is viable. Proceed to Packaged COM writes only after a reversible local manual check confirms that blocking removes the item from Explorer and restoring the prior state brings it back on the current development build. No VM matrix or cross-version test infrastructure is required. If behavior is not confirmed for a Windows build, keep Packaged COM entries read-only on that build.
