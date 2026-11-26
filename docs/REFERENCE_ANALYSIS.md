@@ -97,6 +97,7 @@ Packaged COM 的可用禁用机制必须在 Windows 11 多版本虚拟机上验�
 
 ContextMenuManager 的公开源码使用 GPL-3.0。win-butler 采取以下边界：
 
+- win-butler 已确定使用 MIT 许可证，因此不能直接复制 GPL-3.0 代码
 - 可以阅读公开 README、文档和源码以理解 Windows 机制
 - 不复制其源码、资源、文案、图标或数据结构
 - 不以反编译结果直接生成 win-butler 代码

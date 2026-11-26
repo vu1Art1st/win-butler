@@ -1,0 +1,4 @@
+LIBRARY win_butler_fixture_explorer_command
+EXPORTS
+    DllCanUnloadNow PRIVATE
+    DllGetClassObject PRIVATE

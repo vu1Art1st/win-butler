@@ -1,0 +1,40 @@
+{
+  "targets": [
+    {
+      "id": "win11-22h2",
+      "name": "Windows 11 22H2",
+      "buildPrefix": "22621",
+      "snapshotPrefix": "winbutler-clean-22h2"
+    },
+    {
+      "id": "win11-23h2",
+      "name": "Windows 11 23H2",
+      "buildPrefix": "22631",
+      "snapshotPrefix": "winbutler-clean-23h2"
+    },
+    {
+      "id": "win11-24h2",
+      "name": "Windows 11 24H2",
+      "buildPrefix": "26100",
+      "snapshotPrefix": "winbutler-clean-24h2"
+    },
+    {
+      "id": "win11-current",
+      "name": "Windows 11 current stable",
+      "buildPrefix": "26200",
+      "snapshotPrefix": "winbutler-clean-current"
+    }
+  ],
+  "requiredCases": [
+    "scanner-smoke",
+    "classic-shell-fixture",
+    "shellex-fixture",
+    "packaged-com-install",
+    "packaged-com-block",
+    "packaged-com-unblock",
+    "packaged-com-uninstall",
+    "style-modern-to-classic",
+    "style-classic-to-modern",
+    "explorer-restart"
+  ]
+}

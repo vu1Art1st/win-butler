@@ -1,0 +1,6 @@
+LIBRARY win_butler_fixture_shellex
+EXPORTS
+    DllCanUnloadNow PRIVATE
+    DllGetClassObject PRIVATE
+    DllRegisterServer PRIVATE
+    DllUnregisterServer PRIVATE
